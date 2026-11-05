@@ -120,16 +120,33 @@ func (s *Syrup) SetVolume(newVolume float64) {
 	}
 }
 
-type Inventario struct {
-	medicinas map[int]Medicine
-}
-
-func NuevoInventario() Inventario {
-	return Inventario{
-		medicinas: map[int]Medicine{},
-	}
-}
-
 func main() {
+	listaTabletas := []*Tablet{}
+	listaJarabes := []*Syrup{}
+
+	basePastilla := NewMedicine("Paracetamol", "Pepito", "2026-01-01", 24)
+	miTableta := NewTablet(basePastilla, 500.0, false)
+	listaTabletas = append(listaTabletas, miTableta)
+
+	baseJarabe := NewMedicine("Abrilar", "Jorgito", "2026-05-10", 12)
+	miJarabe := NewSyrup(baseJarabe, 120.0, "Cereza")
+	listaJarabes = append(listaJarabes, miJarabe)
+
+	fmt.Println("     INVENTARIO DE TABLETAS")
+	for _, t := range listaTabletas {
+		t.MostrarInfo()
+	}
+
+	fmt.Println("     INVENTARIO DE JARABES")
+	for _, s := range listaJarabes {
+		s.MostrarInfo()
+	}
+
+	fmt.Println("     PRUEBA DE SETTER Y GETTER ")
+	fmt.Println("Nombre original:", miTableta.GetName())
+
+	miTableta.SetName("Paracetamol Forte")
+
+	fmt.Println("Nombre actualizado:", miTableta.GetName())
 
 }
