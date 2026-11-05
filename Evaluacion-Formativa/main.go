@@ -128,7 +128,7 @@ func main() {
 	miTableta := NewTablet(basePastilla, 500.0, false)
 	listaTabletas = append(listaTabletas, miTableta)
 
-	baseJarabe := NewMedicine("Abrilar", "Jorgito", "2026-05-10", 12)
+	baseJarabe := NewMedicine("jarabito", "Jorgito", "2026-05-10", 12)
 	miJarabe := NewSyrup(baseJarabe, 120.0, "Cereza")
 	listaJarabes = append(listaJarabes, miJarabe)
 
